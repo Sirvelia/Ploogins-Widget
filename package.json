@@ -1,0 +1,55 @@
+{
+  "name": "ploogins-widget",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "description": "Ploogins Widget - Find plugins with AI in your own website",
+  "main": "dist/ploogins-widget.umd.cjs",
+  "module": "dist/ploogins-widget.umd.cjs",
+  "style": "dist/ploogins-widget.css",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ploogins-widget.git"
+  },
+  "keywords": [
+    "ploogins",
+    "widget",
+    "plugin",
+    "ai",
+    "search",
+    "discovery"
+  ],
+  "author": "Ploogins",
+  "license": "MIT",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:watch": "run-p dev \"build-only --watch\"",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@tanstack/vue-query": "^5.83.0",
+    "tailwindcss": "^4.1.11",
+    "vue": "^3.5.18"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^22.16.5",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.7.0",
+    "npm-run-all2": "^8.0.4",
+    "typescript": "~5.8.0",
+    "vite": "^7.0.6",
+    "vite-plugin-vue-devtools": "^8.0.0",
+    "vue-tsc": "^3.0.4"
+  }
+}
