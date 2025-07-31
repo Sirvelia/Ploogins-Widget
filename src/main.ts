@@ -44,7 +44,7 @@ class PlooginsWidget {
         // Inject CSS file into head
         const cssLink = document.createElement('link');
         cssLink.rel = 'stylesheet';
-        cssLink.href = 'https://cdn.jsdelivr.net/gh/Sirvelia/Ploogins-Widget@v0.0.1/dist/ploogins-widget.css';
+        cssLink.href = 'https://cdn.jsdelivr.net/gh/Sirvelia/Ploogins-Widget@v0.0.2/dist/ploogins-widget.css';
         document.head.appendChild(cssLink);
 
         this.app = createApp(Widget, {
