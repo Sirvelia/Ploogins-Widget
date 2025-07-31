@@ -8,15 +8,15 @@
                 <div class="ploogins:flex ploogins:flex-col ploogins:gap-2 ploogins:flex-1">
                     <div>
                         <!-- Plugin name skeleton -->
-                        <div class="ploogins:h-8 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse ploogins:mb-1 ploogins:w-3/4"></div>
+                        <div class="ploogins:h-6 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse ploogins:mb-1 ploogins:w-3/4"></div>
                         <!-- Author skeleton -->
                         <div class="ploogins:h-4 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse ploogins:w-1/2"></div>
                     </div>
 
                     <!-- Main purpose section skeleton -->
                     <div class="ploogins:flex ploogins:items-center ploogins:gap-2">
-                        <div class="ploogins:w-4 ploogins:h-8 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse"></div>
-                        <div class="ploogins:h-8 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse ploogins:w-32"></div>
+                        <div class="ploogins:w-4 ploogins:h-6 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse"></div>
+                        <div class="ploogins:h-6 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse ploogins:w-32"></div>
                     </div>
                 </div>
             </div>
