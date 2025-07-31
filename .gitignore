@@ -18,6 +18,7 @@ coverage
 
 # Testing files
 index.html
+production.html
 
 # Editor directories and files
 .vscode/*

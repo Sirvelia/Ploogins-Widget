@@ -15,11 +15,13 @@ declare global {
 class PlooginsWidget {
     private containerId: string;
     private partnerUUID: string | undefined;
+    private initialSearch: string | undefined;
     private app: any;
 
-    constructor(containerId: string, options: { partnerUUID?: string } = {}) {
+    constructor(containerId: string, options: { partnerUUID?: string, initialSearch?: string } = {}) {
         this.containerId = containerId;
         this.partnerUUID = options.partnerUUID;
+        this.initialSearch = options.initialSearch || '';
         this.app = null;
     }
 
@@ -44,12 +46,13 @@ class PlooginsWidget {
         // Inject CSS file into head
         const cssLink = document.createElement('link');
         cssLink.rel = 'stylesheet';
-        cssLink.href = 'https://cdn.jsdelivr.net/gh/Sirvelia/Ploogins-Widget@v0.0.4/dist/ploogins-widget.css';
+        cssLink.href = 'https://cdn.jsdelivr.net/gh/Sirvelia/Ploogins-Widget@v0.0.5/dist/ploogins-widget.css';
         document.head.appendChild(cssLink);
 
         this.app = createApp(Widget, {
             partnerUUID: this.partnerUUID,
-            settings: partner.settings
+            settings: partner.settings,
+            initialSearch: this.initialSearch
         });
 
         this.app.use(VueQueryPlugin);
