@@ -1,1 +1,1 @@
-@import "tailwindcss" prefix(ploogins);
+@import "tailwindcss" prefix(ploogins) important;
