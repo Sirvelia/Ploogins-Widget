@@ -4,8 +4,8 @@
   "private": false,
   "type": "module",
   "description": "Ploogins Widget - Find plugins with AI in your own website",
-  "main": "dist/ploogins-widget.umd.cjs",
-  "module": "dist/ploogins-widget.umd.cjs",
+  "main": "dist/ploogins-widget.umd.js",
+  "module": "dist/ploogins-widget.umd.js",
   "style": "dist/ploogins-widget.css",
   "files": [
     "dist"

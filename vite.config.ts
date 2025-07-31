@@ -16,7 +16,7 @@ export default defineConfig({
     lib: {
       entry: 'src/main.ts',
       name: 'PlooginsWidget',
-      fileName: 'ploogins-widget',
+      fileName: (format) => `ploogins-widget.${format}.js`,
       formats: ['umd']
     },
     rollupOptions: {
