@@ -37,38 +37,13 @@ const emit = defineEmits(['search'])
                         class="ploogins:w-16 ploogins:h-16 ploogins:rounded-lg">
                     <div class="ploogins:flex ploogins:flex-col ploogins:gap-4">
                         <div>
-                            <p class="ploogins:text-xl ploogins:line-clamp-1 ploogins:hover:line-clamp-none"
+                            <p class="ploogins:text-xl ploogins:line-clamp-1" :title="result.name"
                                 v-html="result.name"></p>
-                            <p class="ploogins:[&_a]:hover:underline" v-html="result.author"></p>
+                            <p class="ploogins:[&_a]:hover:underline" v-html="result.author.replace('<a', `<a target='_blank'`)"></p>
                         </div>
                     </div>
                 </div>
 
-                <span v-if="isPending"
-                    class="ploogins:rounded-full ploogins:bg-gray-200 ploogins:w-full ploogins:h-8 ploogins:animate-pulse"></span>
-                <span v-else class="ploogins:text-xl">{{ insights?.main_purpose }}</span>
-
-                <div class="ploogins:grow ploogins:flex ploogins:flex-col ploogins:justify-end ploogins:gap-2">
-                    <div v-if="isPending" class="ploogins:grid ploogins:grid-cols-4 ploogins:gap-2">
-                        <div v-for="i in 8" :key="i" class="ploogins:flex ploogins:items-center ploogins:gap-1">
-                            <div class="ploogins:w-3 ploogins:h-3 ploogins:bg-gray-200 ploogins:rounded-full ploogins:animate-pulse ploogins:flex-shrink-0"></div>
-                            <div class="ploogins:h-3 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse ploogins:flex-1"></div>
-                        </div>
-                    </div>
-                    <div v-else-if="insights?.features && insights.features.length > 0" 
-                         class="ploogins:grid ploogins:grid-cols-4 ploogins:gap-2 ploogins:max-h-32 ploogins:overflow-y-auto">
-                        <div v-for="feature in insights.features" :key="feature"
-                            class="ploogins:flex ploogins:items-center ploogins:gap-1 ploogins:cursor-pointer ploogins:hover:opacity-70 ploogins:py-1"
-                            @click="$emit('search', feature)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="ploogins:flex-shrink-0" :style="{ color: color }">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span class="ploogins:text-xs ploogins:line-clamp-1">{{ feature }}</span>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="ploogins:flex ploogins:flex-col ploogins:items-end ploogins:justify-between ploogins:min-w-fit">
@@ -104,9 +79,42 @@ const emit = defineEmits(['search'])
                 </div>
             </div>
         </div>
+
+        <div>
+            <span v-if="isPending"
+                class="ploogins:rounded-full ploogins:bg-gray-200 ploogins:w-full ploogins:h-8 ploogins:animate-pulse"></span>
+            <span v-else class="ploogins:text-xl ploogins:block ploogins:mb-2">{{ insights?.main_purpose }}</span>
+
+            <div class="ploogins:grow ploogins:flex ploogins:flex-col ploogins:justify-end ploogins:gap-2">
+                <div v-if="isPending" class="ploogins:grid ploogins:grid-cols-4 ploogins:gap-2">
+                    <div v-for="i in 8" :key="i" class="ploogins:flex ploogins:items-center ploogins:gap-1">
+                        <div
+                            class="ploogins:w-3 ploogins:h-3 ploogins:bg-gray-200 ploogins:rounded-full ploogins:animate-pulse ploogins:flex-shrink-0">
+                        </div>
+                        <div
+                            class="ploogins:h-3 ploogins:bg-gray-200 ploogins:rounded ploogins:animate-pulse ploogins:flex-1">
+                        </div>
+                    </div>
+                </div>
+                <div v-else-if="insights?.features && insights.features.length > 0"
+                    class="ploogins:grid ploogins:grid-cols-4 ploogins:gap-2 ploogins:max-h-32 ploogins:overflow-y-auto">
+                    <div v-for="feature in insights.features" :key="feature"
+                        class="ploogins:flex ploogins:items-center ploogins:gap-1 ploogins:cursor-pointer ploogins:hover:opacity-70 ploogins:py-1"
+                        @click="$emit('search', feature)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="ploogins:flex-shrink-0" :style="{ color: color }">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span class="ploogins:text-xs">{{ feature }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="ploogins:flex ploogins:gap-4 ploogins:justify-end ploogins:items-center">
-            <a v-if="result.business_model !== 'premium'" :href="`https://playground.wordpress.net?plugin=${result.slug}`"
-                target="_blank"
+            <a v-if="result.business_model !== 'premium'"
+                :href="`https://playground.wordpress.net?plugin=${result.slug}`" target="_blank"
                 class="ploogins:flex ploogins:gap-2 ploogins:items-center ploogins:text-sm ploogins:font-bold ploogins:cursor-pointer ploogins:border-2 ploogins:rounded-lg ploogins:px-4 ploogins:py-2 ploogins:transition-all ploogins:duration-300 ploogins:hover:opacity-70 ploogins:w-fit"
                 :style="{ backgroundColor: color, color: textColor, borderColor: borderColor }">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
